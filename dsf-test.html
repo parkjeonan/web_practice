@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>template</title>
+  <style>
+    header {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    .container {
+
+      margin-left: 400px;
+      display: flex;
+      flex-direction: column;
+      width: 2000px;
+    }
+
+    #title {
+      margin-left: 740px;
+      background-color: rgb(200, 250, 0);
+      width: 500px;
+      text-align: center;
+      padding: 10px;
+      font: bold 2rem/2 sans-serif;
+    }
+
+    div {
+      border-top: 1px solid lightgray;
+      padding: 20px;
+      margin-left: 50px;
+      margin-bottom: 5px;
+      width: 900px;
+
+    }
+
+    input {
+      width: 60px;
+      height: 20;
+      border-radius: 15px;
+      margin-right: 50px;
+    }
+
+    a {
+      margin-right: 130px;
+    }
+
+    #main {
+      font-size: 1.2rem;
+    }
+    #num1{
+      background-color: lightgray;
+    }
+
+
+    #last,
+    #last2,
+    #last3,
+    #last4 {
+      margin-bottom: 50px;
+      border-bottom: 1px solid gray;
+    }
+
+    h3 {
+      color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    CALCULATOR
+  </header>
+  <input type="button" id="title" value="Dose Size Calculator"/>
+  <div class="container">
+
+    <p id="main">
+
+      <div id="num1">
+        Slab size mm<br>
+        <a>L : <input type="text" name="L" placeholder="1200"></a>
+        <a>W : <input type="text" name="W" placeholder="150"></a>
+        <a>H : <input type="text" name="H" placeholder="75"></a>
+      </div>
+      <div id="2">
+        Cube size mm<br>
+        <a>L : <input type="text" name="L" placeholder="1200"></a>
+        <a>W : <input type="text" name="W" placeholder="150"></a>
+        <a>H : <input type="text" name="H" placeholder="75"></a>
+      </div>
+
+      <div>
+        No drippers per slab : <input type="text" name="ndps" placeholder="5">
+      </div>
+      <div>
+        Current dose size mls : <input type="text" name="ndps" placeholder="100">
+      </div>
+      <div id="last">
+        Number of cubes per slab : <input type="text" name="ndps" placeholder="1">
+      </div>
+
+
+
+      <div>
+        Slab volume (lts) : <input type="text" name="ndps" placeholder="13.5">
+      </div>
+      <div>
+        Cube volume (lts) : <input type="text" name="ndps" placeholder="0.65">
+      </div>
+      <div>
+        Total cube volume per slab (lts) : <input type="text" name="ndps" placeholder="0.65">
+      </div>
+      <div>
+        Total volume per dripper (lts) : <input type="text" name="ndps" placeholder="2.83">
+      </div>
+      <div id="last2">
+        Current dose size factor: <input type="text" name="ndps" placeholder="35.3">
+      </div>
+
+      <h3>Dose size range</h3>
+      <div>
+        DSF - mls/round/dripper
+      </div>
+      <div>
+        Min 20 : <input type="text" name="ndps" placeholder="57">
+      </div>
+      <div>
+        OPT25 : <input type="text" name="ndps" placeholder="71">
+      </div>
+      <div id="last3">
+        Max 30 : <input type="text" name="ndps" placeholder="85">
+      </div>
+
+
+      <h3>Computer light start figures</h3>
+      <div>
+        Drippers/m² : <input type="text" name="ndps" placeholder="2.5">
+      </div>
+      <div>
+        Dose size mls at DSF 25 : <input type="text" name="ndps" placeholder="71">
+      </div>
+      <div>
+        Required mls/joules/cm² : <input type="text" name="ndps" placeholder="2.5">
+      </div>
+      <div id="last4">
+        Light start at selected j/cm² : <input type="text" name="ndps" placeholder="71">
+      </div>
+
+
+      <h3>Dose factors and what they mean</h3>
+    </p>
+  </div>
+
+
+</body>
+
+</html>
