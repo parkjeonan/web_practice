@@ -6,9 +6,7 @@
   <title>template</title>
   <style>
     header {
-      text-align: center;
-      font-weight: bold;
-      margin: 20px;
+      margin-bottom: 30px;
     }
 
     .container {
@@ -20,12 +18,13 @@
     }
 
     #title {
-      margin-left: 740px;
+      margin-left: 700px;
       background-color: rgb(200, 250, 0);
       width: 500px;
       text-align: center;
       padding: 10px;
       font: bold 2rem/2 sans-serif;
+      border-radius: 15px;
     }
 
     div {
@@ -37,12 +36,14 @@
 
     }
 
-    input {
-      width: 60px;
-      height: 20;
-      border-radius: 15px;
+     div input {
+      width: 80px;
+      height: 35px;
+      border-radius: 25px;
       margin-right: 50px;
+
     }
+
 
     a {
       margin-right: 130px;
@@ -51,9 +52,8 @@
     #main {
       font-size: 1.2rem;
     }
-    #num1{
-      background-color: lightgray;
-    }
+
+
 
 
     #last,
@@ -71,10 +71,14 @@
 </head>
 
 <body>
+
+
   <header>
-    CALCULATOR
+    <img src="green.jpg" height="200" width="1890px" />
+
+
   </header>
-  <input type="button" id="title" value="Dose Size Calculator"/>
+  <input type="button" id="title" value="Dose Size Calculator" />
   <div class="container">
 
     <p id="main">
@@ -92,6 +96,7 @@
         <a>H : <input type="text" name="H" placeholder="75"></a>
       </div>
 
+<div
       <div>
         No drippers per slab : <input type="text" name="ndps" placeholder="5">
       </div>
