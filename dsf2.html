@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Calculator_dsf</title>
+  <style>
+  .container{
+    width: 70rem;
+
+  }
+  div{
+    margin-left: 5rem;
+    border-top: 1px solid gray;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+
+  img{
+    width: 84rem;
+    height: 200px;
+  }
+  header{
+    text-align: center;
+  }
+  header input{
+
+    width: 30rem;
+    height: 4rem;
+    font-size: 2rem;
+    border-radius: 3rem;
+    background-color: rgb(200, 220, 150);
+    font-family: sans-serif;
+  }
+  a input{
+    margin-left: 2rem;
+  }
+  div input{
+    margin-left: 2rem;
+    width:10rem;
+    height: 2rem;
+    border-radius: 3rem;
+  }
+  a{
+    margin-left: 5rem;
+  }
+  h3{
+    color: skyblue;
+  }
+  #blue1{
+    background-color: skyblue;
+  }
+  #pink1{
+    background-color: pink;
+  }
+  #orange1{
+    background-color: ivory;
+  }
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="green.jpg" />
+    <h1>Calculator</h1>
+    <input type="button" id="title" value="Dose Size Calculator" />
+  </header>
+  <section>
+    <div class="container">
+      <div>Slab size mm</div>
+      <a>L : <input type="text" name="L" placeholder="1200"></a>
+      <a>W : <input type="text" name="W" placeholder="150"></a>
+      <a>H : <input type="text" name="H" placeholder="75"></a>
+
+
+      <div>Cube size mm</div>
+      <a>L : <input id="blue1" type="text" name="L" placeholder="1200"></a>
+      <a>W : <input id="blue1" type="text" name="W" placeholder="150"></a>
+      <a>H : <input id="blue1" type="text" name="H" placeholder="75"></a>
+
+
+      <div>No drippers per slab	 <input type="text" name="ndps" placeholder="5"> </div>
+      <div>Current dose size mls <input type="text" id="blue1" name="cdsm" placeholder="100"></div>
+      <div>Number of cubes per slab <input type="text" name="ncps" placeholder="1"></div>
+
+
+      <div>Slab volume (lts)<input type="text" name="slabV" placeholder="13.5"></div>
+      <div>Cube volume (lts)<input type="text" name="cubeV" placeholder="0.65"></div>
+      <div>Total cube volume per slab (lts)	<input type="TcubeV" name="ndps" placeholder="0.65"></div>
+      <div>Total volume per dripper (lts)<input type="Tv" name="ndps" placeholder="2.83"></div>
+      <div>Current dose size factor <input id="pink1" type="text" name="Cdsf" placeholder="35.3"></div>
+
+      <h3>Dose size range</h3>
+      <div>DSF - mls/round/dripper</div>
+      <div>Min 20<input type="text" name="Min 20" placeholder="57"></div>
+      <div>OPT25<input id="orange1" type="OPT25" name="ndps" placeholder="71"></div>
+      <div>Max 30<input type="text" name="Max 30" placeholder="85"></div>
+
+      <h3>Computer light start figures</h3>
+      <div>Drippers/m²<input type="text" name="Drippers/m²" placeholder="2.5"></div>
+      <div>Dose size mls at DSF 25<input type="text" name="Dose size mls at DSF 25" placeholder="71"></div>
+      <div>Required mls/joules/cm²<input id="blue1" type="text" name="Required mls/joules/cm²" placeholder="2.5"></div>
+      <div>Light start at selected j/cm²<input id="orange1" type="text" name="Light start at selected j/cm²" placeholder="71"></div>
+
+      <h3>Dose factors and what they mean</h3>
+      <h4>10 to 20</h4>
+      <p>Dose size too small causing poor distribution or cone in the slab. EC control more difficult.</p>
+      <h4>20 to 30</h4>
+      <p>Optimal range for dose size to maximize cone. Aim more for 20 for increasing water content (Period 1) and higher for EC control (Period 3). Flow rates also have an effect. With 4 lts drippers the dose is applied very quickly so a dose factor towards 20 would be better. Where the dose is applied more slowly the dose factor can be higher.</p>
+      <h4>30+</h4>
+      <p>Doze size too large giving good EC control but low water content and dry top to slab.</p>
+
+
+
+
+
+    </div>
+
+  </section>
+  <footer>
+
+  </footer>
+
+
+</body>
+
+
+</html>
