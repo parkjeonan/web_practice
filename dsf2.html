@@ -5,17 +5,20 @@
   <meta charset="utf-8" />
   <title>Calculator_dsf</title>
   <style>
-  .container{
-    width: 70rem;
+  body section{
+    width: 60rem;
+    margin: auto;
+    font-size: 1.2rem;
 
   }
+
   div{
     margin-left: 5rem;
-    border-top: 1px solid gray;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-  }
+    border-top: 1px solid lightgray;
 
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+  }
   img{
     width: 84rem;
     height: 200px;
@@ -24,7 +27,6 @@
     text-align: center;
   }
   header input{
-
     width: 30rem;
     height: 4rem;
     font-size: 2rem;
@@ -34,60 +36,84 @@
   }
   a input{
     margin-left: 2rem;
+    border-radius: 3rem;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
   }
   div input{
     margin-left: 2rem;
-    width:10rem;
+    width:24rem;
     height: 2rem;
     border-radius: 3rem;
+    float: right;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+
+  }
+  #slab, #cube{
+    border-top: 1px solid lightgray;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
   }
   a{
     margin-left: 5rem;
+    margin-top: 10rem;
   }
   h3{
     color: skyblue;
   }
-  #blue1{
+  #blue1,#blue2,#blue3,#blue4,#blue5{
     background-color: skyblue;
   }
   #pink1{
     background-color: pink;
   }
-  #orange1{
+  #orange1,#orange2{
     background-color: ivory;
   }
-
-
   </style>
 </head>
 
 <body>
+  <script>
+  function call()
+  {
+   if(document.getElementById("blue1").value && document.getElementById("blue2").value&& document.getElementById("blue3").value){
+    document.getElementById('cuveV').value =parseInt(document.getElementById('blue1').value) * parseInt(document.getElementById('blue2').value)* parseInt(document.getElementById('blue3').value) /1000000;
+   }
+  }
+  </script>
   <header>
     <img src="green.jpg" />
     <h1>Calculator</h1>
     <input type="button" id="title" value="Dose Size Calculator" />
   </header>
   <section>
-    <div class="container">
-      <div>Slab size mm</div>
+    <p class="container">
+      <p id="slab">Slab size mm<br />
       <a>L : <input type="text" name="L" placeholder="1200"></a>
       <a>W : <input type="text" name="W" placeholder="150"></a>
       <a>H : <input type="text" name="H" placeholder="75"></a>
+      </p>
 
 
-      <div>Cube size mm</div>
-      <a>L : <input id="blue1" type="text" name="L" placeholder="1200"></a>
-      <a>W : <input id="blue1" type="text" name="W" placeholder="150"></a>
-      <a>H : <input id="blue1" type="text" name="H" placeholder="75"></a>
+      <p id="cube">Cube size mm<br />
+      <a>L : <input id="blue1" type="text" name="L" placeholder="1200" onkeyup="call()"></a>
+      <a>W : <input id="blue2" type="text" name="W" placeholder="150" onkeyup="call()"></a>
+      <a>H : <input id="blue3" type="text" name="H" placeholder="75" onkeyup="call()"></a>
+      </p>
 
 
       <div>No drippers per slab	 <input type="text" name="ndps" placeholder="5"> </div>
-      <div>Current dose size mls <input type="text" id="blue1" name="cdsm" placeholder="100"></div>
+      <div>Current dose size mls <input type="text" id="blue4" name="cdsm" placeholder="100"></div>
       <div>Number of cubes per slab <input type="text" name="ncps" placeholder="1"></div>
 
 
       <div>Slab volume (lts)<input type="text" name="slabV" placeholder="13.5"></div>
-      <div>Cube volume (lts)<input type="text" name="cubeV" placeholder="0.65"></div>
+      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" placeholder="0.65"></div>
       <div>Total cube volume per slab (lts)	<input type="TcubeV" name="ndps" placeholder="0.65"></div>
       <div>Total volume per dripper (lts)<input type="Tv" name="ndps" placeholder="2.83"></div>
       <div>Current dose size factor <input id="pink1" type="text" name="Cdsf" placeholder="35.3"></div>
@@ -101,8 +127,8 @@
       <h3>Computer light start figures</h3>
       <div>Drippers/m²<input type="text" name="Drippers/m²" placeholder="2.5"></div>
       <div>Dose size mls at DSF 25<input type="text" name="Dose size mls at DSF 25" placeholder="71"></div>
-      <div>Required mls/joules/cm²<input id="blue1" type="text" name="Required mls/joules/cm²" placeholder="2.5"></div>
-      <div>Light start at selected j/cm²<input id="orange1" type="text" name="Light start at selected j/cm²" placeholder="71"></div>
+      <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" placeholder="2.5"></div>
+      <div>Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" placeholder="71"></div>
 
       <h3>Dose factors and what they mean</h3>
       <h4>10 to 20</h4>
@@ -116,7 +142,7 @@
 
 
 
-    </div>
+    </p>
 
   </section>
   <footer>
