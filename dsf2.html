@@ -5,6 +5,18 @@
   <meta charset="utf-8" />
   <title>Calculator_dsf</title>
   <style>
+  #last{
+    margin-left: 4rem;
+    border:0px;
+  }
+  #bottom1,#bottom2,#bottom3,#bottom4{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 4rem;
+  }
+  *{
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
   body section{
     width: 60rem;
     margin: auto;
@@ -17,7 +29,7 @@
     border-top: 1px solid lightgray;
 
     padding-bottom: 2rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
   }
   img{
     width: 84rem;
@@ -25,14 +37,18 @@
   }
   header{
     text-align: center;
+    width: auto;
+    height: auto;
+    background-color: #D4E6D4;
   }
   header input{
     width: 30rem;
     height: 4rem;
     font-size: 2rem;
     border-radius: 3rem;
-    background-color: rgb(200, 220, 150);
+    background-color: #B5B7B3;
     font-family: sans-serif;
+    margin-top: 3rem;
   }
   a input{
     margin-left: 2rem;
@@ -57,6 +73,7 @@
     border-top: 1px solid lightgray;
     margin-bottom: 2rem;
     margin-left: 5rem;
+    padding-top: 2rem;
   }
   a{
     margin-left: 5rem;
@@ -66,7 +83,7 @@
     color: skyblue;
   }
   #blue1,#blue2,#blue3,#blue4,#blue5{
-    background-color: skyblue;
+    background-color: powderblue;
   }
   #pink1{
     background-color: pink;
@@ -74,69 +91,95 @@
   #orange1,#orange2{
     background-color: ivory;
   }
+  #title{
+    margin-bottom: 3rem;
+  }
+
+
   </style>
 </head>
 
 <body>
   <script>
+
   function call()
   {
    if(document.getElementById("blue1").value && document.getElementById("blue2").value&& document.getElementById("blue3").value){
-    document.getElementById('cuveV').value =parseInt(document.getElementById('blue1').value) * parseInt(document.getElementById('blue2').value)* parseInt(document.getElementById('blue3').value) /1000000;
-   }
+    document.getElementById("cubeV").value =parseInt(document.getElementById("blue1").value) * parseInt(document.getElementById("blue2").value)* parseInt(document.getElementById("blue3").value) /1000000;
+    document.getElementById("TcubeV").value =parseInt(document.getElementById("blue1").value) * parseInt(document.getElementById("blue2").value)* parseInt(document.getElementById("blue3").value) /1000000;
+  }
+  if(document.getElementById("cubeV").value){
+    document.getElementById("totalV").value = (parseInt(document.getElementById("cubeV").value) + parseInt(document.getElementById("slabV").value)) / 5;
+
+  }
+  if(document.getElementById("totalV").value || document.getElementById("blue4").value ){
+    document.getElementById("pink1").value = parseInt(document.getElementById("blue4").value) / parseInt(document.getElementById("totalV").value);
+
+  }
+  if(document.getElementById("totalV").value ){
+    document.getElementById("min").value = parseInt(document.getElementById("totalV").value) * 20;
+    document.getElementById("orange1").value = parseInt(document.getElementById("totalV").value) * 25;
+    document.getElementById("max").value = parseInt(document.getElementById("totalV").value) * 30;
+    document.getElementById("size25").value = parseInt(document.getElementById("totalV").value) * 25;
+    document.getElementById("orange2").value = parseInt(document.getElementById("totalV").value) * 25;
+
+
+  }
+
   }
   </script>
   <header>
-    <img src="green.jpg" />
-    <h1>Calculator</h1>
     <input type="button" id="title" value="Dose Size Calculator" />
   </header>
   <section>
     <p class="container">
       <p id="slab">Slab size mm<br />
-      <a>L : <input type="text" name="L" placeholder="1200"></a>
-      <a>W : <input type="text" name="W" placeholder="150"></a>
-      <a>H : <input type="text" name="H" placeholder="75"></a>
+      <a>L : <input type="text" name="L" value="1200" disabled ></a>
+      <a>W : <input type="text" name="W" value="150" disabled ></a>
+      <a>H : <input type="text" name="H" value="75" disabled ></a>
       </p>
 
 
       <p id="cube">Cube size mm<br />
-      <a>L : <input id="blue1" type="text" name="L" placeholder="1200" onkeyup="call()"></a>
-      <a>W : <input id="blue2" type="text" name="W" placeholder="150" onkeyup="call()"></a>
-      <a>H : <input id="blue3" type="text" name="H" placeholder="75" onkeyup="call()"></a>
+      <a>L : <input id="blue1" type="text" name="L" value="100" onkeyup="call()"></a>
+      <a>W : <input id="blue2" type="text" name="W" value="100" onkeyup="call()"></a>
+      <a>H : <input id="blue3" type="text" name="H" value="65" onkeyup="call()"></a>
       </p>
 
 
-      <div>No drippers per slab	 <input type="text" name="ndps" placeholder="5"> </div>
-      <div>Current dose size mls <input type="text" id="blue4" name="cdsm" placeholder="100"></div>
-      <div>Number of cubes per slab <input type="text" name="ncps" placeholder="1"></div>
+      <div>No drippers per slab	 <input type="text" id="ndrip" name="ndps" value="5" onkeyup="call()" disabled > </div>
+      <div>Current dose size mls <input type="text" id="blue4" name="cdsm" value="100" onkeyup="call()"></div>
+      <div id="bottom1">Number of cubes per slab <input type="text"  name="ncps" value="1" disabled  onkeyup="call()"></div>
 
 
-      <div>Slab volume (lts)<input type="text" name="slabV" placeholder="13.5"></div>
-      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" placeholder="0.65"></div>
-      <div>Total cube volume per slab (lts)	<input type="TcubeV" name="ndps" placeholder="0.65"></div>
-      <div>Total volume per dripper (lts)<input type="Tv" name="ndps" placeholder="2.83"></div>
-      <div>Current dose size factor <input id="pink1" type="text" name="Cdsf" placeholder="35.3"></div>
+      <div>Slab volume (lts)<input type="text" id="slabV" name="slabV" value="13.5" disabled onkeyup="call()"></div>
+      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" value="0.65" disabled onkeyup="call()"></div>
+      <div>Total cube volume per slab (lts)	<input type="text" id="TcubeV" name="cubeV" value="0.65" disabled onkeyup="call()"></div>
+      <div>Total volume per dripper (lts)<input type="text" id="totalV" name="ndps" value="2.83" disabled onkeyup="call()"></div>
+      <div id="bottom2">Current dose size factor <input id="pink1" type="text" name="Cdsf" value="35.3" disabled  onkeyup="call()"></div>
 
       <h3>Dose size range</h3>
       <div>DSF - mls/round/dripper</div>
-      <div>Min 20<input type="text" name="Min 20" placeholder="57"></div>
-      <div>OPT25<input id="orange1" type="OPT25" name="ndps" placeholder="71"></div>
-      <div>Max 30<input type="text" name="Max 30" placeholder="85"></div>
+      <div>Min 20<input type="text" id="min" name="Min 20" value="57" disabled  onkeyup="call()"></div>
+      <div>OPT25<input id="orange1" type="OPT25" name="ndps" value="71" disabled  onkeyup="call()"></div>
+      <div id="bottom3">Max 30<input type="text" id="max" name="Max 30" value="85" disabled  onkeyup="call()"></div>
 
       <h3>Computer light start figures</h3>
-      <div>Drippers/m²<input type="text" name="Drippers/m²" placeholder="2.5"></div>
-      <div>Dose size mls at DSF 25<input type="text" name="Dose size mls at DSF 25" placeholder="71"></div>
-      <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" placeholder="2.5"></div>
-      <div>Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" placeholder="71"></div>
+      <div>Drippers/m²<input type="text" name="Drippers/m²" value="2.5" disabled ></div>
+      <div>Dose size mls at DSF 25<input type="text" id="size25" name="Dose size mls at DSF 25" value="71" disabled  onkeyup="call()"></div>
+      <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" value="2.5" onkeyup="call()"></div>
+      <div id="bottom4">Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" value="71" disabled  onkeyup="call()"></div>
 
       <h3>Dose factors and what they mean</h3>
-      <h4>10 to 20</h4>
-      <p>Dose size too small causing poor distribution or cone in the slab. EC control more difficult.</p>
-      <h4>20 to 30</h4>
-      <p>Optimal range for dose size to maximize cone. Aim more for 20 for increasing water content (Period 1) and higher for EC control (Period 3). Flow rates also have an effect. With 4 lts drippers the dose is applied very quickly so a dose factor towards 20 would be better. Where the dose is applied more slowly the dose factor can be higher.</p>
-      <h4>30+</h4>
-      <p>Doze size too large giving good EC control but low water content and dry top to slab.</p>
+      <div id="last">
+        <h4>10 to 20</h4>
+        <p>Dose size too small causing poor distribution or cone in the slab. EC control more difficult.</p>
+        <h4>20 to 30</h4>
+        <p>Optimal range for dose size to maximize cone. Aim more for 20 for increasing water content (Period 1) and higher for EC control (Period 3). Flow rates also have an effect. With 4 lts drippers the dose is applied very quickly so a dose factor towards 20 would be better. Where the dose is applied more slowly the dose factor can be higher.</p>
+        <h4>30+</h4>
+        <p>Doze size too large giving good EC control but low water content and dry top to slab.</p>
+      </div>
+
 
 
 
