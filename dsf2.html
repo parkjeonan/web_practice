@@ -80,7 +80,12 @@
     margin-top: 10rem;
   }
   h3{
-    color: skyblue;
+    color: #01A9DB;
+    font-weight: bold;
+
+  }
+  h4{
+    font-weight: bold;
   }
   #blue1,#blue2,#blue3,#blue4,#blue5{
     background-color: powderblue;
@@ -89,7 +94,7 @@
     background-color: pink;
   }
   #orange1,#orange2{
-    background-color: ivory;
+    background-color: #F5F6CE;
   }
   #title{
     margin-bottom: 3rem;
@@ -114,19 +119,13 @@
     document.getElementById("max").value = parseFloat(document.getElementById("totalV").value) * 30;
     document.getElementById("size25").value = parseFloat(document.getElementById("totalV").value) * 25;
     document.getElementById("orange2").value = parseFloat(document.getElementById("totalV").value) * 25;
-    }
-
-  if(document.getElementById("cubeV").value){
   }
 
   if( document.getElementById("blue4").value ){
     document.getElementById("pink1").value = parseFloat(document.getElementById("blue4").value) / parseFloat(document.getElementById("totalV").value);
-
   }
-  if(document.getElementById("totalV").value ){
-
-
-
+  if(document.getElementById("blue5").value ){
+    document.getElementById("orange2").value=  parseFloat(document.getElementById("size25").value) / (parseFloat(document.getElementById("blue5").value) / parseFloat(document.getElementById("sameV").value))
   }
 
   }
@@ -168,7 +167,7 @@
       <div id="bottom3">Max 30<input type="text" id="max" name="Max 30" value="85"  onkeyup="call()" disabled></div>
 
       <h3>Computer light start figures</h3>
-      <div>Drippers/m²<input type="text" name="Drippers/m²" value="2.5" disabled ></div>
+      <div>Drippers/m²<input type="text" id="sameV" name="Drippers/m²" value="2.5" disabled ></div>
       <div>Dose size mls at DSF 25<input type="text" id="size25" name="Dose size mls at DSF 25" value="71"   onkeyup="call()"  disabled></div>
       <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" value="2.5" onkeyup="call()"></div>
       <div id="bottom4">Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" value="71"  onkeyup="call()" disabled></div>
@@ -182,9 +181,6 @@
         <h4>30+</h4>
         <p>Doze size too large giving good EC control but low water content and dry top to slab.</p>
       </div>
-
-
-
 
 
 
