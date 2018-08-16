@@ -17,7 +17,7 @@
     font-family: sans-serif;
     font-weight: lighter;
   }
-  body section{
+  body form{
     width: 60rem;
     margin: auto;
     font-size: 1.2rem;
@@ -133,44 +133,52 @@
   <header>
     <input type="button" id="title" value="Dose Size Calculator" />
   </header>
-  <section>
+
+  <form action="" autocomplete="on">
     <p class="container">
       <p id="slab">Slab size mm<br />
-      <a>L : <input type="text" name="L" value="1200" disabled ></a>
-      <a>W : <input type="text" name="W" value="150" disabled ></a>
-      <a>H : <input type="text" name="H" value="75" disabled ></a>
+      <a>L : <input title="Standard slab lengths are in the pull down menu. Please check availability if other dimensions are required." type="text" name="L" value="1200" disabled ></a>
+      <a>W : <input title="Standard slab lengths are in the pull down menu. Go for a wider slab if you want to increase the substrate volume and keep the length the same." type="text" name="W" value="150" disabled ></a>
+      <a>H : <input title="Slab height either 7.5 or 10cm standard. the height will effect the total volume of substrate and of course the dose size." type="text" name="H" value="75" disabled ></a>
       </p>
 
 
       <p id="cube">Cube size mm<br />
-      <a>L : <input id="blue1" type="text" name="L" value="100" onkeyup="call()"></a>
-      <a>W : <input id="blue2" type="text" name="W" value="100" onkeyup="call()"></a>
-      <a>H : <input id="blue3" type="text" name="H" value="65" onkeyup="call()"></a>
+      <a>L : <input id="blue1" title="Please enter the length of the cube." type="text" name="L" value="100" onkeyup="call()"></a>
+      <a>W : <input id="blue2" title="Please enter the width of the cube." type="text" name="W" value="100" onkeyup="call()"></a>
+      <a>H : <input id="blue3" title="Please enter the height of the cube." type="text" name="H" value="65" onkeyup="call()"></a>
       </p>
 
 
-      <div>No drippers per slab	 <input type="text" id="ndrip" name="ndps" value="5" onkeyup="call()" disabled > </div>
-      <div>Current dose size mls <input type="text" id="blue4" name="cdsm" value="100" onkeyup="call()"></div>
-      <div id="bottom1">Number of cubes per slab <input type="text"  name="ncps" value="1" onkeyup="call()" disabled  ></div>
+      <div>No drippers per slab	 <input title="The number of drippers per slab." type="text" id="ndrip" name="ndps" value="5" onkeyup="call()" disabled > </div>
+      <div>Current dose size mls <input title="Enter the current dose size to see what your current DSF is." type="text" id="blue4" name="cdsm" value="100" onkeyup="call()"></div>
+      <div id="bottom1">Number of cubes per slab <input title="The number of cubes per slab." type="text"  name="ncps" value="1" onkeyup="call()" disabled  ></div>
 
 
-      <div>Slab volume (lts)<input type="text" id="slabV" name="slabV" value="13.5" onkeyup="call()" disabled  ></div>
-      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" value="0.65" onkeyup="call()" disabled></div>
-      <div>Total cube volume per slab (lts)	<input type="text" id="TcubeV" name="cubeV" value="0.65"  onkeyup="call()" disabled></div>
-      <div>Total volume per dripper (lts)<input type="text" id="totalV" name="ndps" value="2.83"  onkeyup="call()" disabled></div>
-      <div id="bottom2">Current dose size factor <input id="pink1" type="text" name="Cdsf" value="35.3"  onkeyup="call()" disabled></div>
+      <div>Slab volume (lts)<input title="The volume of the slab size selected.
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 13 및 14입니다." type="text" id="slabV" name="slabV" value="13.5" onkeyup="call()" disabled  ></div>
+      <div>Cube volume (lts)<input title="The volume of the cube size selected.
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 0 및 1입니다." type="text" id="cubeV" name="cubeV" value="0.65" onkeyup="call()" disabled></div>
+      <div>Total cube volume per slab (lts)	<input title="The total cube volume for one slab.
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 0 및 1입니다." type="text" id="TcubeV" name="cubeV" value="0.65"  onkeyup="call()" disabled></div>
+      <div>Total volume per dripper (lts)<input title="The volume of substrate under each dripper[cube and slab]
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 2 및 3입니다." type="text" id="totalV" name="ndps" value="2.83"  onkeyup="call()" disabled></div>
+      <div id="bottom2">Current dose size factor <input id="pink1" title="The DSF of the current dose size used which should be between 20 & 30.
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 35 및 36입니다." type="text" name="Cdsf" value="35.3"  onkeyup="call()" disabled></div>
 
       <h3>Dose size range</h3>
       <div>DSF - mls/round/dripper</div>
-      <div>Min 20<input type="text" id="min" name="Min 20" value="57"   onkeyup="call()" disabled></div>
-      <div>OPT25<input id="orange1" type="OPT25" name="ndps" value="71"   onkeyup="call()" disabled></div>
-      <div id="bottom3">Max 30<input type="text" id="max" name="Max 30" value="85"  onkeyup="call()" disabled></div>
+      <div>Min 20<input title="Minimum recommended dose size per dripper for the current selection." type="text" id="min" name="Min 20" value="57"   onkeyup="call()" disabled></div>
+      <div>OPT25<input id="orange1" title="Optimum recommended dose size per dripper for the current selection." type="OPT25" name="ndps" value="71"   onkeyup="call()" disabled></div>
+      <div id="bottom3">Max 30<input title="Maximum recommended dose size per dripper for the current selection." type="text" id="max" name="Max 30" value="85"  onkeyup="call()" disabled></div>
 
       <h3>Computer light start figures</h3>
-      <div>Drippers/m²<input type="text" id="sameV" name="Drippers/m²" value="2.5" disabled ></div>
-      <div>Dose size mls at DSF 25<input type="text" id="size25" name="Dose size mls at DSF 25" value="71"   onkeyup="call()"  disabled></div>
-      <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" value="2.5" onkeyup="call()"></div>
-      <div id="bottom4">Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" value="71"  onkeyup="call()" disabled></div>
+      <div>Drippers/m²<input title="The calculated drippers per m².
+유효한 값을 입력해 주세요. 가장 근접한 유효 값 2개는 2 및 3입니다." type="text" id="sameV" name="Drippers/m²" value="2.5" disabled ></div>
+      <div>Dose size mls at DSF 25<input title="The calculated Dose size based on a DSF of 25." type="text" id="size25" name="Dose size mls at DSF 25" value="71"   onkeyup="call()"  disabled></div>
+      <div>Required mls/joules/cm²<input id="blue5" title="The figure will vary. A standard figure in Northern Europe would be between 2.2 and 3. In hotter, dryer climates this will be higher.
+There is a separate sheet on this[double click]." type="text" name="Required mls/joules/cm²" value="2.5" onkeyup="call()"></div>
+      <div id="bottom4">Light start at selected j/cm²<input id="orange2" title="The calculated light figure in joules / cm² for the required mls / joule / m² at the calculated dose size." type="text" name="Light start at selected j/cm²" value="71"  onkeyup="call()" disabled></div>
 
       <h3>Dose factors and what they mean</h3>
       <div id="last">
@@ -186,7 +194,7 @@
 
     </p>
 
-  </section>
+  </form>
   <footer>
 
   </footer>
