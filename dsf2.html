@@ -46,7 +46,7 @@
     height: 4rem;
     font-size: 2rem;
     border-radius: 3rem;
-    background-color: #B5B7B3;
+    background-color: white;
     font-family: sans-serif;
     margin-top: 3rem;
   }
@@ -104,24 +104,27 @@
 
   function call()
   {
-   if(document.getElementById("blue1").value && document.getElementById("blue2").value&& document.getElementById("blue3").value){
-    document.getElementById("cubeV").value =parseInt(document.getElementById("blue1").value) * parseInt(document.getElementById("blue2").value)* parseInt(document.getElementById("blue3").value) /1000000;
-    document.getElementById("TcubeV").value =parseInt(document.getElementById("blue1").value) * parseInt(document.getElementById("blue2").value)* parseInt(document.getElementById("blue3").value) /1000000;
-  }
-  if(document.getElementById("cubeV").value){
-    document.getElementById("totalV").value = (parseInt(document.getElementById("cubeV").value) + parseInt(document.getElementById("slabV").value)) / 5;
+   if(document.getElementById("blue1").value || document.getElementById("blue2").value|| document.getElementById("blue3").value){
+    document.getElementById("cubeV").value =parseFloat(document.getElementById("blue1").value) * parseFloat(document.getElementById("blue2").value)* parseFloat(document.getElementById("blue3").value) /1000000;
+    document.getElementById("TcubeV").value =parseFloat(document.getElementById("blue1").value) * parseFloat(document.getElementById("blue2").value)* parseFloat(document.getElementById("blue3").value) /1000000;
+    document.getElementById("totalV").value = (parseFloat(document.getElementById("cubeV").value) + parseFloat(document.getElementById("slabV").value)) / parseFloat(document.getElementById("ndrip").value);
+    document.getElementById("pink1").value = parseFloat(document.getElementById("blue4").value) / parseFloat(document.getElementById("totalV").value);
+    document.getElementById("min").value = parseFloat(document.getElementById("totalV").value) * 20;
+    document.getElementById("orange1").value = parseFloat(document.getElementById("totalV").value) * 25;
+    document.getElementById("max").value = parseFloat(document.getElementById("totalV").value) * 30;
+    document.getElementById("size25").value = parseFloat(document.getElementById("totalV").value) * 25;
+    document.getElementById("orange2").value = parseFloat(document.getElementById("totalV").value) * 25;
+    }
 
+  if(document.getElementById("cubeV").value){
   }
-  if(document.getElementById("totalV").value || document.getElementById("blue4").value ){
-    document.getElementById("pink1").value = parseInt(document.getElementById("blue4").value) / parseInt(document.getElementById("totalV").value);
+
+  if( document.getElementById("blue4").value ){
+    document.getElementById("pink1").value = parseFloat(document.getElementById("blue4").value) / parseFloat(document.getElementById("totalV").value);
 
   }
   if(document.getElementById("totalV").value ){
-    document.getElementById("min").value = parseInt(document.getElementById("totalV").value) * 20;
-    document.getElementById("orange1").value = parseInt(document.getElementById("totalV").value) * 25;
-    document.getElementById("max").value = parseInt(document.getElementById("totalV").value) * 30;
-    document.getElementById("size25").value = parseInt(document.getElementById("totalV").value) * 25;
-    document.getElementById("orange2").value = parseInt(document.getElementById("totalV").value) * 25;
+
 
 
   }
@@ -149,26 +152,26 @@
 
       <div>No drippers per slab	 <input type="text" id="ndrip" name="ndps" value="5" onkeyup="call()" disabled > </div>
       <div>Current dose size mls <input type="text" id="blue4" name="cdsm" value="100" onkeyup="call()"></div>
-      <div id="bottom1">Number of cubes per slab <input type="text"  name="ncps" value="1" disabled  onkeyup="call()"></div>
+      <div id="bottom1">Number of cubes per slab <input type="text"  name="ncps" value="1" onkeyup="call()" disabled  ></div>
 
 
-      <div>Slab volume (lts)<input type="text" id="slabV" name="slabV" value="13.5" disabled onkeyup="call()"></div>
-      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" value="0.65" disabled onkeyup="call()"></div>
-      <div>Total cube volume per slab (lts)	<input type="text" id="TcubeV" name="cubeV" value="0.65" disabled onkeyup="call()"></div>
-      <div>Total volume per dripper (lts)<input type="text" id="totalV" name="ndps" value="2.83" disabled onkeyup="call()"></div>
-      <div id="bottom2">Current dose size factor <input id="pink1" type="text" name="Cdsf" value="35.3" disabled  onkeyup="call()"></div>
+      <div>Slab volume (lts)<input type="text" id="slabV" name="slabV" value="13.5" onkeyup="call()" disabled  ></div>
+      <div>Cube volume (lts)<input type="text" id="cubeV" name="cubeV" value="0.65" onkeyup="call()" disabled></div>
+      <div>Total cube volume per slab (lts)	<input type="text" id="TcubeV" name="cubeV" value="0.65"  onkeyup="call()" disabled></div>
+      <div>Total volume per dripper (lts)<input type="text" id="totalV" name="ndps" value="2.83"  onkeyup="call()" disabled></div>
+      <div id="bottom2">Current dose size factor <input id="pink1" type="text" name="Cdsf" value="35.3"  onkeyup="call()" disabled></div>
 
       <h3>Dose size range</h3>
       <div>DSF - mls/round/dripper</div>
-      <div>Min 20<input type="text" id="min" name="Min 20" value="57" disabled  onkeyup="call()"></div>
-      <div>OPT25<input id="orange1" type="OPT25" name="ndps" value="71" disabled  onkeyup="call()"></div>
-      <div id="bottom3">Max 30<input type="text" id="max" name="Max 30" value="85" disabled  onkeyup="call()"></div>
+      <div>Min 20<input type="text" id="min" name="Min 20" value="57"   onkeyup="call()" disabled></div>
+      <div>OPT25<input id="orange1" type="OPT25" name="ndps" value="71"   onkeyup="call()" disabled></div>
+      <div id="bottom3">Max 30<input type="text" id="max" name="Max 30" value="85"  onkeyup="call()" disabled></div>
 
       <h3>Computer light start figures</h3>
       <div>Drippers/m²<input type="text" name="Drippers/m²" value="2.5" disabled ></div>
-      <div>Dose size mls at DSF 25<input type="text" id="size25" name="Dose size mls at DSF 25" value="71" disabled  onkeyup="call()"></div>
+      <div>Dose size mls at DSF 25<input type="text" id="size25" name="Dose size mls at DSF 25" value="71"   onkeyup="call()"  disabled></div>
       <div>Required mls/joules/cm²<input id="blue5" type="text" name="Required mls/joules/cm²" value="2.5" onkeyup="call()"></div>
-      <div id="bottom4">Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" value="71" disabled  onkeyup="call()"></div>
+      <div id="bottom4">Light start at selected j/cm²<input id="orange2" type="text" name="Light start at selected j/cm²" value="71"  onkeyup="call()" disabled></div>
 
       <h3>Dose factors and what they mean</h3>
       <div id="last">
